@@ -1,0 +1,185 @@
+.home-video-container {
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+}
+
+.home-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover; /* keeps same UI as img */
+  border: none;
+  z-index: -1;
+}
+
+.home-page {
+  margin-bottom: 230px;
+}
+
+/* -------- HomeAbout Section -------- */
+.homeabout {
+  margin: 80px auto;
+  display: flex;
+  justify-content: center;
+  align-items: stretch; /* both cols same height */
+  flex-wrap: wrap; /* allows stacking on small screens */
+  gap: 2rem; /* spacing between cols */
+  width: 90%; /* take most of screen */
+  max-width: 1200px; /* keep it readable on huge screens */
+}
+
+/* -------- Columns -------- */
+.homeabout .col {
+  flex: 1 1 45%; /* flexible: grow, shrink, basis 45% */
+  display: flex;
+  justify-content: center; /* center horizontally */
+  align-items: center;     /* center vertically */
+  text-align: center;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+/* -------- Left About (text + optional small img) -------- */
+.left-about {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.left-about p {
+  font-family: "open sans", sans-serif;
+  font-weight: 400;
+  font-size: clamp(14px, 2vw, 16px); /* scales with screen */
+  line-height: 1.8;
+  text-align: justify;
+  color: gray !important;
+  width: 100%;
+}
+
+.left-about img {
+  height: clamp(100px, 15vw, 150px);
+  opacity: 0.5;
+  margin-left: 100%;
+  transform: rotate(45deg);
+  margin-top: 20px;
+}
+
+/* -------- Right About (image + edit btn) -------- */
+.right-about-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.right-about-wrapper img {
+  width: 80%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.edit-btn {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.animated-img {
+  opacity: 0;
+  transform: scale(0.5);
+}
+
+.animated-img.pop-in {
+  animation: popIn 0.8s ease-out forwards;
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+/* -------- Responsive -------- */
+@media (max-width: 768px) {
+  .homeabout {
+    flex-direction: column; /* stack */
+    align-items: center;
+  }
+
+  .homeabout .col {
+    flex: 1 1 100%; /* full width on mobile */
+  }
+
+  .left-about p {
+    text-align: justify;
+  }
+}
+
+/* ---------- Upload Modal ---------- */
+.upload-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.upload-modal-content {
+  background: black;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+}
+
+.upload-modal-content h4 {
+  margin-bottom: 15px;
+}
+
+.upload-input {
+  margin-bottom: 15px;
+}
+
+.upload-btn {
+  background: gray;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 20px;
+  cursor: pointer;
+}
+
+.upload-btn:disabled {
+  background: darkgray;
+  cursor: not-allowed;
+}

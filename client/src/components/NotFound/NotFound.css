@@ -1,0 +1,16 @@
+.notfound{
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    
+    background: black;
+    margin-top: 100px;
+    margin-bottom: 550px;
+}
+
+.not-found-text{
+    border: 1px solid rgba(30, 30, 151, 0.667);
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0 2px 3px;
+}

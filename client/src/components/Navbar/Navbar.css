@@ -1,0 +1,113 @@
+.custom-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 30px 50px;
+  background: transparent; /* keep transparent */
+  height: 120px;
+  z-index: 10; /* keep on top */
+}
+
+/* Logo */
+.logo-img {
+  max-height: 130px;
+  width: auto;
+  display: block;
+}
+.logo a {
+  display: inline-block;
+  line-height: 0;
+}
+
+/* Links */
+.custom-navbar a {
+  color: white;
+  text-decoration: none;
+}
+.custom-navbar a.active {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+
+/* Nav options (desktop center) */
+.nav-options {
+  display: flex;
+  gap: 60px;
+  justify-content: center;
+  flex: 1;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nav-options a {
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+/* Right login icon */
+.nav-icon {
+  display: flex;
+  align-items: center;
+}
+.nav-icon i {
+  font-size: 40px;
+}
+
+/* Hamburger (hidden on desktop) */
+.hamburger {
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+  display: none;
+}
+
+/* ================== Responsive ================== */
+@media (max-width: 900px) {
+  .custom-navbar {
+    justify-content: space-between;
+    padding: 20px 30px;
+  }
+
+  /* Hide center nav links */
+  .nav-options {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    height: 100vh;
+    width: 220px;
+    background: rgba(0, 0, 0, 0.9);
+    flex-direction: column;
+    align-items: start;
+    padding: 100px 20px;
+    gap: 30px;
+    transition: left 0.3s ease-in-out;
+    transform: none;
+  }
+  .nav-options.open {
+    left: 0;
+  }
+
+  /* Show hamburger on left */
+  .hamburger {
+    display: block;
+  }
+
+  /* Keep logo centered */
+  .logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* Keep user login on right */
+  .nav-icon {
+    margin-left: auto;
+  }
+}

@@ -1,0 +1,15 @@
+.custom-footer{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: -150px; /* overlaps the section above */
+  position: relative;  /* stays in flow so it appears at bottom */
+  z-index: 10;         /* stays on top of gallery */
+  padding: 20px;   
+  margin-bottom: 40px; 
+}
+
+.custom-footer a {
+  color: white;
+  text-decoration: none;
+}
