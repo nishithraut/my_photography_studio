@@ -23,9 +23,10 @@ const DB_URL = process.env.MONGO_URL;
 
 // Middleware
 
-const allowedOrigins = ["http://localhost:3000"]
+const allowedOrigins = ["https://nishithraut.onrender.com"];
+
 app.use(cors({
-    origin: allowedOrigins,  // wherever your React app runs
+    origin: allowedOrigins[0],  // wherever your React app runs
     credentials: true                 // Allow cookies
   }));                                // Enables Cross-Origin Resource Sharing
 app.use(bodyParser.json());           // Parses incoming JSON requests into req.body
