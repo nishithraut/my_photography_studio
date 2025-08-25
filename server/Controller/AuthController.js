@@ -76,8 +76,10 @@ module.exports.Logout = async (req, res, next) => {
 };
 
 module.exports.CheckAuth = async (req,res, next) =>{
-  console.log("Cookies received:", req.cookies);
+  console.log("Cookies received:", req.cookies.token);
   const token = req.cookies.token; // 👈 this should match the name you set in login
+  
+
   if (!token) {
     return res.json({ loggedIn: false });
   }
