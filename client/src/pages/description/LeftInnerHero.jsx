@@ -34,7 +34,7 @@ function LeftInnerHero() {
     formData.append("title", "aboutPageAboutImg");
 
     try {
-      const { data } = await axios.put("http://localhost:3002/misc", formData, {
+      const { data } = await axios.put(`${process.env.REACT_APP_BACKEND_URL}/misc`, formData, {
         withCredentials: true,
         headers: { "Content-Type": "multipart/form-data" },
       });
@@ -57,7 +57,7 @@ function LeftInnerHero() {
 
   const fetchImages = async () => {
     try {
-      const { data } = await axios.get("http://localhost:3002/misc", {
+      const { data } = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/misc`, {
         params: { title: "aboutPageAboutImg" },
       });
       setImgURL(data.imageUrl);

@@ -2,17 +2,15 @@ import React, { useState } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import { useAuth } from "../../context/AuthContext";
-import './login.css';
-
+import "./login.css";
 
 const Login = () => {
-  const { auth, setAuth } = useAuth();   // get global auth state
+  const { auth, setAuth } = useAuth(); // get global auth state
   const [inputValue, setInputValue] = useState({
     username: "",
     password: "",
   });
   const { username, password } = inputValue;
-
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;
@@ -35,7 +33,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "http://localhost:3002/login",
+        `${process.env.REACT_APP_BACKEND_URL}/login`,
         { ...inputValue },
         { withCredentials: true }
       );
@@ -44,9 +42,9 @@ const Login = () => {
 
       if (success) {
         handleSuccess(message);
-        
+
         setTimeout(() => {
-          window.location.href = "http://localhost:3000/gallery";
+          window.location.href = "/gallery";
         }, 1000);
       } else {
         handleError(message);
@@ -59,7 +57,7 @@ const Login = () => {
 
   const handleLogout = async () => {
     try {
-      await axios.get("http://localhost:3002/logout", {
+      await axios.get(`${process.env.REACT_APP_BACKEND_URL}/logout`, {
         withCredentials: true,
       });
       setAuth({ loading: false, loggedIn: false });

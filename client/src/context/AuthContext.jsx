@@ -9,7 +9,7 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const { data } = await axios.get("http://localhost:3002/checkAuth", {
+        const { data } = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/checkAuth`, {
           withCredentials: true,
         });
         setAuth({ loading: false, loggedIn: data.loggedIn });

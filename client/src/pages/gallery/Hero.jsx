@@ -24,7 +24,7 @@ function Hero() {
   // ✅ Fetch all images (runs on mount and after add/delete)
   const fetchImages = async () => {
     try {
-      const res = await axios.get("http://localhost:3002/gallery");
+      const res = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/gallery`);
       setImgURL(res.data);
     } catch (err) {
       console.error("Error fetching images:", err);
@@ -40,7 +40,7 @@ function Hero() {
     try {
       console.log("to be deleted ", id);
       const { data } = await axios.delete(
-        `http://localhost:3002/gallery/${id}`,
+        `${process.env.REACT_APP_BACKEND_URL}/gallery/${id}`,
         {withCredentials:true}
       );
       const { success, message } = data;
@@ -74,7 +74,7 @@ function Hero() {
       console.log(formData)
 
       const { data } = await axios.post(
-        "http://localhost:3002/gallery",
+        `${process.env.REACT_APP_BACKEND_URL}/gallery`,
         formData,
         {
           withCredentials:true,

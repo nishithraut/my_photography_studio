@@ -36,7 +36,7 @@ function RightAbout() {
 
     try {
       const { data } = await axios.put(
-        "http://localhost:3002/misc", 
+        `${process.env.REACT_APP_BACKEND_URL}/misc`,
         formData, 
         {
         withCredentials: true,
@@ -63,7 +63,7 @@ function RightAbout() {
   // ✅ Fetch all images (runs on mount and after add/delete)
   const fetchImages = async () => {
     try {
-        const { data } = await axios.get("http://localhost:3002/misc", {
+        const { data } = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/misc`, {
           params: { title: "homePageAboutImg" }, // ✅ send query parameter
         });
         console.log(data);
