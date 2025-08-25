@@ -38,9 +38,9 @@ app.use(bodyParser.json());           // Parses incoming JSON requests into req.
 //      API ROUTES
 // =======================
 
-app.get("/", (req,res,err)=>{
-    console.log("Backend is working");
-});
+// app.get("/", (req,res,err)=>{
+//     console.log("Backend is working");
+// });
 
 
 app.use("/", authRoute);

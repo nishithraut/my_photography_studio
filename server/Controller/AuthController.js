@@ -42,7 +42,6 @@ module.exports.Login = async (req, res, next) => {
 
     // Store token in a cookie so it persists in the browser
     res.cookie("token", token, {
-      withCredentials: true, // allow frontend (React) to send/receive cookies
       httpOnly: true, 
       secure: true,
       sameSite: "none",
@@ -77,6 +76,7 @@ module.exports.Logout = async (req, res, next) => {
 };
 
 module.exports.CheckAuth = async (req,res, next) =>{
+  console.log("Cookies received:", req.cookies);
   const token = req.cookies.token; // 👈 this should match the name you set in login
   if (!token) {
     return res.json({ loggedIn: false });
